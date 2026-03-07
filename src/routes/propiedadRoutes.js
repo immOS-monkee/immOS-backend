@@ -1,0 +1,15 @@
+const express = require('express');
+const router = express.Router();
+const ctrl = require('../controllers/propiedadController');
+const { authenticate } = require('../middleware/authMiddleware');
+
+router.use(authenticate);
+
+router.get('/', ctrl.getPropiedades);
+router.post('/', ctrl.createPropiedad);
+router.get('/:id', ctrl.getPropiedad);
+router.put('/:id', ctrl.updatePropiedad);
+router.put('/:id/estado', ctrl.changeEstado);
+router.post('/convertir/:captacion_id', ctrl.convertFromCaptacion);
+
+module.exports = router;
