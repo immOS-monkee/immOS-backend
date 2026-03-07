@@ -39,7 +39,7 @@ const PORT = process.env.PORT || 3000;
 // Security Middlewares
 app.use(helmet());
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: [process.env.FRONTEND_URL || 'http://localhost:5173', 'https://immos-monkee.web.app', 'https://immos-monkee.firebaseapp.com'],
     credentials: true
 }));
 
