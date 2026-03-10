@@ -6,7 +6,7 @@ exports.createPropiedad = async (req, res) => {
     try {
         const agente_id = req.user.id;
         const {
-            direccion, tipo_propiedad, operacion,
+            direccion, ciudad, tipo_propiedad, operacion,
             precio_venta, precio_alquiler, caracteristicas,
             coordenadas, vendedor_id, captacion_id,
             images
@@ -22,6 +22,7 @@ exports.createPropiedad = async (req, res) => {
                 agente_id,
                 vendedor_id: vendedor_id || null,
                 direccion,
+                ciudad: ciudad || 'Sin definir',
                 tipo_propiedad,
                 operacion,
                 precio_venta: precio_venta || null,
@@ -133,9 +134,17 @@ exports.getPropiedad = async (req, res) => {
 exports.updatePropiedad = async (req, res) => {
     try {
         const { id } = req.params;
-        const updates = req.body;
+        const updates = { ...req.body };
+        
+        // Limpieza quirúrgica de campos relacionales o protegidos que Supabase rechazaría
         delete updates.id;
-        delete updates.agente_id; // Can't change agent via this endpoint
+        delete updates.agente_id; 
+        delete updates.multimedia_propiedad;
+        delete updates.updated_at;
+        delete updates.created_at;
+        delete updates.fecha_estado;
+        delete updates.vendedor_id;
+        
         updates.updated_at = new Date().toISOString();
 
         const { data: propiedad, error } = await supabase
@@ -208,6 +217,7 @@ exports.convertFromCaptacion = async (req, res) => {
             .insert([{
                 agente_id,
                 direccion: d.address || 'Sin dirección',
+                ciudad: d.city || 'Sin definir',
                 tipo_propiedad: d.type || 'piso',
                 operacion: d.operation || 'venta',
                 precio_venta: d.operation === 'venta' ? (d.price || null) : null,
@@ -309,5 +319,59 @@ exports.getPropiedadPublica = async (req, res) => {
     } catch (error) {
         console.error('Get Public Propiedad Error:', error);
         res.status(500).json({ error: 'Error al obtener datos públicos de la propiedad' });
+    }
+};
+
+exports.updateGallery = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { images } = req.body; // Array de URLs (pueden ser base64)
+
+        if (!Array.isArray(images)) {
+            return res.status(400).json({ error: 'Se requiere un array de imágenes' });
+        }
+
+        // 1. Eliminar relaciones antiguas en la tabla de multimedia
+        const { error: delError } = await supabase
+            .from('multimedia_propiedad')
+            .delete()
+            .eq('propiedad_id', id);
+
+        if (delError) throw delError;
+
+        // 2. Insertar nuevas relaciones con el nuevo orden
+        if (images.length > 0) {
+            const mediaRecords = images.map((url, idx) => ({
+                propiedad_id: id,
+                url,
+                tipo: 'foto',
+                orden: idx,
+                es_principal: idx === 0
+            }));
+
+            const { error: insError } = await supabase
+                .from('multimedia_propiedad')
+                .insert(mediaRecords);
+
+            if (insError) throw insError;
+        }
+
+        // 3. Obtener la propiedad actualizada con su nueva galería
+        const { data: updatedProp, error: fetchError } = await supabase
+            .from('propiedades')
+            .select('*, multimedia_propiedad(*)')
+            .eq('id', id)
+            .single();
+
+        if (fetchError) throw fetchError;
+
+        res.json({ 
+            message: 'Galería actualizada con éxito', 
+            propiedad: updatedProp 
+        });
+
+    } catch (error) {
+        console.error('Update Gallery Error:', error);
+        res.status(500).json({ error: 'Error al sincronizar la galería' });
     }
 };

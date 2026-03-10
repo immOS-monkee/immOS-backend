@@ -12,6 +12,7 @@ router.get('/', ctrl.getPropiedades);
 router.post('/', ctrl.createPropiedad);
 router.get('/:id', ctrl.getPropiedad);
 router.put('/:id', ctrl.updatePropiedad);
+router.put('/:id/galeria', ctrl.updateGallery);
 router.delete('/:id', ctrl.deletePropiedad);
 router.put('/:id/estado', ctrl.changeEstado);
 router.post('/convertir/:captacion_id', ctrl.convertFromCaptacion);

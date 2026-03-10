@@ -5,12 +5,10 @@ exports.getMisChats = async (req, res) => {
     try {
         const userId = req.user.id;
 
-        // Simplified approach: find distinct users the current user has messaged
-        // In a real app, a 'conversaciones' table is better.
-        // For surgical simplicity, we query messages where the user is part of.
+        // Query messages where user is sender or receiver
         const { data: messages, error } = await supabase
             .from('mensajes')
-            .select('*, sender:remitente_id(id, nombre), receiver:destinatario_id(id, nombre)')
+            .select('*')
             .or(`remitente_id.eq.${userId},destinatario_id.eq.${userId}`)
             .order('created_at', { ascending: false });
 
@@ -20,10 +18,17 @@ exports.getMisChats = async (req, res) => {
         const chats = [];
         const seenUsers = new Set();
 
+        // Collect unique IDs of other users to fetch their names
+        const otherUserIds = [...new Set(messages.map(m => m.remitente_id === userId ? m.destinatario_id : m.remitente_id))];
+
+        const { data: usersInfo } = await supabase.from('usuarios').select('id, nombre').in('id', otherUserIds);
+        const userMap = Object.fromEntries(usersInfo?.map(u => [u.id, u]) || []);
+
         messages.forEach(m => {
-            const otherUser = m.remitente_id === userId ? m.receiver : m.sender;
-            if (otherUser && !seenUsers.has(otherUser.id)) {
-                seenUsers.add(otherUser.id);
+            const otherId = m.remitente_id === userId ? m.destinatario_id : m.remitente_id;
+            if (otherId && !seenUsers.has(otherId)) {
+                seenUsers.add(otherId);
+                const otherUser = userMap[otherId] || { id: otherId, nombre: 'Usuario' };
                 chats.push({
                     user: otherUser,
                     lastMessage: m.contenido,
@@ -45,6 +50,12 @@ exports.getMensajesConUsuario = async (req, res) => {
     try {
         const userId = req.user.id;
         const { otherUserId } = req.params;
+
+        // Validación Quirúrgica: Evitar error 500 si el ID no es un UUID (ej. "grupal")
+        const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        if (!uuidRegex.test(otherUserId)) {
+            return res.status(400).json({ error: 'ID de usuario inválido' });
+        }
 
         const { data: messages, error } = await supabase
             .from('mensajes')
@@ -94,5 +105,60 @@ exports.enviarMensaje = async (req, res) => {
         res.status(201).json(message);
     } catch (error) {
         res.status(500).json({ error: 'Error al enviar mensaje' });
+    }
+};
+
+// --- CHAT GRUPAL (CUARTEL GENERAL) ---
+
+exports.getMensajesGrupales = async (req, res) => {
+    try {
+        const { data: messages, error } = await supabase
+            .from('chat_grupal_interno')
+            .select('*') // No join here until FK is fixed
+            .order('created_at', { ascending: true })
+            .limit(100);
+
+        if (error) throw error;
+
+        // Fetch sender names manually
+        const senderIds = [...new Set(messages.map(m => m.remitente_id))];
+        const { data: users } = await supabase.from('usuarios').select('id, nombre').in('id', senderIds);
+        const userMap = Object.fromEntries(users?.map(u => [u.id, u]) || []);
+
+        const enrichedMessages = messages.map(m => ({
+            ...m,
+            sender: userMap[m.remitente_id] || { nombre: 'Desconocido' }
+        }));
+
+        res.json(enrichedMessages);
+    } catch (error) {
+        console.error('Get Group Messages Error:', error);
+        res.status(500).json({ error: 'Error al obtener chat grupal' });
+    }
+};
+
+exports.enviarMensajeGrupal = async (req, res) => {
+    try {
+        const { contenido } = req.body;
+        const remitente_id = req.user.id;
+
+        if (!contenido) return res.status(400).json({ error: 'Contenido obligatorio' });
+
+        const { data: message, error } = await supabase
+            .from('chat_grupal_interno')
+            .insert([{ remitente_id, contenido }])
+            .select()
+            .single();
+
+        if (error) throw error;
+
+        // Fetch user info for response consistency
+        const { data: user } = await supabase.from('usuarios').select('id, nombre').eq('id', remitente_id).single();
+        message.sender = user;
+
+        res.status(201).json(message);
+    } catch (error) {
+        console.error('Send Group Message Error:', error);
+        res.status(500).json({ error: 'Error al enviar al grupo' });
     }
 };
