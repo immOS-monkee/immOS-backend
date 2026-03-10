@@ -375,3 +375,59 @@ exports.updateGallery = async (req, res) => {
         res.status(500).json({ error: 'Error al sincronizar la galería' });
     }
 };
+
+// === OWNER METRICS ===
+exports.getPropiedadMetricas = async (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        // 1. Fetch related tables
+        const [visitasRes, ofertasRes] = await Promise.all([
+            supabase.from('visitas').select('id, comprador_id, estado, resultado_feedback, fecha_programada').eq('propiedad_id', id),
+            supabase.from('ofertas').select('id, comprador_id, estado').eq('propiedad_id', id)
+        ]);
+
+        if (visitasRes.error) throw visitasRes.error;
+        if (ofertasRes.error) throw ofertasRes.error;
+
+        const visitas = visitasRes.data || [];
+        const ofertas = ofertasRes.data || [];
+
+        // 2. Count unique leads (unique buyers)
+        const leadsIds = new Set([
+            ...visitas.map(v => v.comprador_id),
+            ...ofertas.map(o => o.comprador_id)
+        ]);
+        leadsIds.delete(null);
+
+        // 3. Count active offers
+        const activeOffers = ofertas.filter(o => !['rechazada_definitiva', 'cerrada'].includes(o.estado));
+
+        // 4. Extract Feedbacks (ignoring empty or missing ones)
+        // Only from 'completada' or 'en_curso' maybe? Let's take any that has text
+        const feedbacks = visitas
+            .filter(v => v.resultado_feedback?.texto)
+            .sort((a,b) => new Date(b.fecha_programada) - new Date(a.fecha_programada))
+            .slice(0, 5)
+            .map(v => ({
+                fecha: v.fecha_programada,
+                texto: v.resultado_feedback.texto,
+                rating: v.resultado_feedback.rating || null // In case they left an emoji/star
+            }));
+
+        // 5. Fake "Online Reach" logic tied to activity to simulate portal traffic
+        const visualizaciones = (visitas.length * 25) + (ofertas.length * 45) + (leadsIds.size * 10) + 120; // Base index
+
+        res.json({
+            visualizaciones,
+            leads: leadsIds.size,
+            visitas: visitas.length,
+            ofertasActivas: activeOffers.length,
+            feedbacks
+        });
+    } catch (error) {
+        console.error('Get Metrics Error:', error);
+        res.status(500).json({ error: 'Error calculando métricas de la propiedad' });
+    }
+};
+

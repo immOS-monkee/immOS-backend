@@ -15,6 +15,7 @@ router.put('/:id', ctrl.updatePropiedad);
 router.put('/:id/galeria', ctrl.updateGallery);
 router.delete('/:id', ctrl.deletePropiedad);
 router.put('/:id/estado', ctrl.changeEstado);
+router.get('/:id/metricas', ctrl.getPropiedadMetricas);
 router.post('/convertir/:captacion_id', ctrl.convertFromCaptacion);
 
 module.exports = router;
