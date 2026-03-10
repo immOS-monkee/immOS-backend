@@ -1,0 +1,1277 @@
+﻿[dotenv@17.3.1] injecting env (8) from .env -- tip: ­ƒñû agentic secret storage: https://dotenvx.com/as2
+winston:create-logger: Define prototype method for "error"
+winston:create-logger: Define prototype method for "warn"
+winston:create-logger: Define prototype method for "info"
+winston:create-logger: Define prototype method for "http"
+winston:create-logger: Define prototype method for "verbose"
+winston:create-logger: Define prototype method for "debug"
+winston:create-logger: Define prototype method for "silly"
+winston:create-logger: Define prototype method for "error"
+winston:create-logger: Define prototype method for "warn"
+winston:create-logger: Define prototype method for "info"
+winston:create-logger: Define prototype method for "http"
+winston:create-logger: Define prototype method for "verbose"
+winston:create-logger: Define prototype method for "debug"
+winston:create-logger: Define prototype method for "silly"
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ÔÜÖ´©Å  write to custom object with { processEnv: myObject }
+node : 
+2026-03-09T22:03:10.670Z 
+router:route new '/register'
+En línea: 1 Carácter: 1
++ node src/server.js 2>&1 | 
+Out-File -FilePath 
+startup_error.txt -Encod ...
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo            
+  : NotSpecifi    ed: 
+(2026-03-09T22    :0...new 
+'/registe    r':String) [], 
+Rem    oteException
+    + FullyQualifiedEr    
+rorId : NativeComm    andError
+ 
+2026-03-09T22:03:10.674Z 
+router:layer new '/register'
+2026-03-09T22:03:10.676Z 
+router:route post /register
+2026-03-09T22:03:10.677Z 
+router:layer new '/'
+2026-03-09T22:03:10.678Z 
+router:route new '/login'
+2026-03-09T22:03:10.678Z 
+router:layer new '/login'
+2026-03-09T22:03:10.678Z 
+router:route post /login
+2026-03-09T22:03:10.678Z 
+router:layer new '/'
+2026-03-09T22:03:10.679Z 
+router:route post /login
+2026-03-09T22:03:10.679Z 
+router:layer new '/'
+2026-03-09T22:03:10.679Z 
+router:route post /login
+2026-03-09T22:03:10.680Z 
+router:layer new '/'
+2026-03-09T22:03:10.680Z 
+router:route new '/refresh'
+2026-03-09T22:03:10.680Z 
+router:layer new '/refresh'
+2026-03-09T22:03:10.681Z 
+router:route post /refresh
+2026-03-09T22:03:10.681Z 
+router:layer new '/'
+2026-03-09T22:03:10.694Z 
+router use '/' authenticate
+2026-03-09T22:03:10.694Z 
+router:layer new '/'
+2026-03-09T22:03:10.694Z 
+router:route new '/'
+2026-03-09T22:03:10.694Z 
+router:layer new '/'
+2026-03-09T22:03:10.695Z 
+router:route get /
+2026-03-09T22:03:10.695Z 
+router:layer new '/'
+2026-03-09T22:03:10.695Z 
+router:route new '/'
+2026-03-09T22:03:10.695Z 
+router:layer new '/'
+2026-03-09T22:03:10.695Z 
+router:route post /
+2026-03-09T22:03:10.695Z 
+router:layer new '/'
+2026-03-09T22:03:10.695Z 
+router:route new '/:id'
+2026-03-09T22:03:10.696Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.696Z 
+router:route get /:id
+2026-03-09T22:03:10.696Z 
+router:layer new '/'
+2026-03-09T22:03:10.697Z 
+router:route new '/:id'
+2026-03-09T22:03:10.697Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.697Z 
+router:route put /:id
+2026-03-09T22:03:10.697Z 
+router:layer new '/'
+2026-03-09T22:03:10.697Z 
+router:route new '/:id/estado'
+2026-03-09T22:03:10.697Z 
+router:layer new '/:id/estado'
+2026-03-09T22:03:10.698Z 
+router:route put /:id/estado
+2026-03-09T22:03:10.698Z 
+router:layer new '/'
+2026-03-09T22:03:10.698Z 
+router:route new 
+'/convertir/:captacion_id'
+2026-03-09T22:03:10.698Z 
+router:layer new 
+'/convertir/:captacion_id'
+2026-03-09T22:03:10.698Z 
+router:route post 
+/convertir/:captacion_id
+2026-03-09T22:03:10.698Z 
+router:layer new '/'
+2026-03-09T22:03:10.703Z 
+router use '/' authenticate
+2026-03-09T22:03:10.704Z 
+router:layer new '/'
+2026-03-09T22:03:10.704Z 
+router:route new '/'
+2026-03-09T22:03:10.704Z 
+router:layer new '/'
+2026-03-09T22:03:10.704Z 
+router:route get /
+2026-03-09T22:03:10.704Z 
+router:layer new '/'
+2026-03-09T22:03:10.704Z 
+router:route new '/'
+2026-03-09T22:03:10.704Z 
+router:layer new '/'
+2026-03-09T22:03:10.704Z 
+router:route post /
+2026-03-09T22:03:10.704Z 
+router:layer new '/'
+2026-03-09T22:03:10.705Z 
+router:route new '/:id'
+2026-03-09T22:03:10.705Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.705Z 
+router:route get /:id
+2026-03-09T22:03:10.705Z 
+router:layer new '/'
+2026-03-09T22:03:10.705Z 
+router:route new '/:id'
+2026-03-09T22:03:10.705Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.705Z 
+router:route put /:id
+2026-03-09T22:03:10.705Z 
+router:layer new '/'
+2026-03-09T22:03:10.705Z 
+router:route new 
+'/:id/timeline'
+2026-03-09T22:03:10.705Z 
+router:layer new 
+'/:id/timeline'
+2026-03-09T22:03:10.706Z 
+router:route get /:id/timeline
+2026-03-09T22:03:10.706Z 
+router:layer new '/'
+2026-03-09T22:03:10.706Z 
+router:route new 
+'/:id/timeline'
+2026-03-09T22:03:10.706Z 
+router:layer new 
+'/:id/timeline'
+2026-03-09T22:03:10.706Z 
+router:route post 
+/:id/timeline
+2026-03-09T22:03:10.706Z 
+router:layer new '/'
+2026-03-09T22:03:10.706Z 
+router:route new 
+'/:id/incidencia'
+2026-03-09T22:03:10.706Z 
+router:layer new 
+'/:id/incidencia'
+2026-03-09T22:03:10.706Z 
+router:route post 
+/:id/incidencia
+2026-03-09T22:03:10.706Z 
+router:layer new '/'
+2026-03-09T22:03:10.711Z 
+router use '/' authenticate
+2026-03-09T22:03:10.711Z 
+router:layer new '/'
+2026-03-09T22:03:10.711Z 
+router:route new '/'
+2026-03-09T22:03:10.711Z 
+router:layer new '/'
+2026-03-09T22:03:10.711Z 
+router:route post /
+2026-03-09T22:03:10.711Z 
+router:layer new '/'
+2026-03-09T22:03:10.712Z 
+router:route new '/'
+2026-03-09T22:03:10.712Z 
+router:layer new '/'
+2026-03-09T22:03:10.712Z 
+router:route get /
+2026-03-09T22:03:10.712Z 
+router:layer new '/'
+2026-03-09T22:03:10.712Z 
+router:route new '/:id/status'
+2026-03-09T22:03:10.712Z 
+router:layer new '/:id/status'
+2026-03-09T22:03:10.712Z 
+router:route patch /:id/status
+2026-03-09T22:03:10.712Z 
+router:layer new '/'
+2026-03-09T22:03:10.720Z 
+router use '/' authenticate
+2026-03-09T22:03:10.721Z 
+router:layer new '/'
+2026-03-09T22:03:10.721Z 
+router:route new '/'
+2026-03-09T22:03:10.721Z 
+router:layer new '/'
+2026-03-09T22:03:10.721Z 
+router:route get /
+2026-03-09T22:03:10.721Z 
+router:layer new '/'
+2026-03-09T22:03:10.722Z 
+router:route new '/'
+2026-03-09T22:03:10.722Z 
+router:layer new '/'
+2026-03-09T22:03:10.722Z 
+router:route post /
+2026-03-09T22:03:10.722Z 
+router:layer new '/'
+2026-03-09T22:03:10.722Z 
+router:route new '/:id'
+2026-03-09T22:03:10.722Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.722Z 
+router:route get /:id
+2026-03-09T22:03:10.723Z 
+router:layer new '/'
+2026-03-09T22:03:10.723Z 
+router:route new 
+'/:id/confirmar'
+2026-03-09T22:03:10.723Z 
+router:layer new 
+'/:id/confirmar'
+2026-03-09T22:03:10.723Z 
+router:route post 
+/:id/confirmar
+2026-03-09T22:03:10.723Z 
+router:layer new '/'
+2026-03-09T22:03:10.723Z 
+router:route new 
+'/:id/validar'
+2026-03-09T22:03:10.723Z 
+router:layer new 
+'/:id/validar'
+2026-03-09T22:03:10.723Z 
+router:route post /:id/validar
+2026-03-09T22:03:10.723Z 
+router:layer new '/'
+2026-03-09T22:03:10.724Z 
+router:route new 
+'/:id/checkin'
+2026-03-09T22:03:10.724Z 
+router:layer new 
+'/:id/checkin'
+2026-03-09T22:03:10.724Z 
+router:route post /:id/checkin
+2026-03-09T22:03:10.724Z 
+router:layer new '/'
+2026-03-09T22:03:10.724Z 
+router:route new 
+'/:id/checkout'
+2026-03-09T22:03:10.724Z 
+router:layer new 
+'/:id/checkout'
+2026-03-09T22:03:10.724Z 
+router:route post 
+/:id/checkout
+2026-03-09T22:03:10.724Z 
+router:layer new '/'
+2026-03-09T22:03:10.725Z 
+router:route new 
+'/:id/no-show'
+2026-03-09T22:03:10.725Z 
+router:layer new 
+'/:id/no-show'
+2026-03-09T22:03:10.725Z 
+router:route post /:id/no-show
+2026-03-09T22:03:10.725Z 
+router:layer new '/'
+2026-03-09T22:03:10.725Z 
+router:route new 
+'/:id/justificar-no-show'
+2026-03-09T22:03:10.725Z 
+router:layer new 
+'/:id/justificar-no-show'
+2026-03-09T22:03:10.725Z 
+router:route post 
+/:id/justificar-no-show
+2026-03-09T22:03:10.726Z 
+router:layer new '/'
+2026-03-09T22:03:10.737Z 
+router use '/' authenticate
+2026-03-09T22:03:10.737Z 
+router:layer new '/'
+2026-03-09T22:03:10.737Z 
+router:route new '/pipeline'
+2026-03-09T22:03:10.737Z 
+router:layer new '/pipeline'
+2026-03-09T22:03:10.737Z 
+router:route get /pipeline
+2026-03-09T22:03:10.738Z 
+router:layer new '/'
+2026-03-09T22:03:10.738Z 
+router:route new 
+'/estadisticas'
+2026-03-09T22:03:10.738Z 
+router:layer new 
+'/estadisticas'
+2026-03-09T22:03:10.738Z 
+router:route get /estadisticas
+2026-03-09T22:03:10.738Z 
+router:layer new '/'
+2026-03-09T22:03:10.738Z 
+router:route new '/'
+2026-03-09T22:03:10.738Z 
+router:layer new '/'
+2026-03-09T22:03:10.738Z 
+router:route get /
+2026-03-09T22:03:10.738Z 
+router:layer new '/'
+2026-03-09T22:03:10.738Z 
+router:route new '/'
+2026-03-09T22:03:10.738Z 
+router:layer new '/'
+2026-03-09T22:03:10.738Z 
+router:route post /
+2026-03-09T22:03:10.738Z 
+router:layer new '/'
+2026-03-09T22:03:10.738Z 
+router:route post /
+2026-03-09T22:03:10.738Z 
+router:layer new '/'
+2026-03-09T22:03:10.739Z 
+router:route new '/:id'
+2026-03-09T22:03:10.739Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.739Z 
+router:route get /:id
+2026-03-09T22:03:10.739Z 
+router:layer new '/'
+2026-03-09T22:03:10.739Z 
+router:route new 
+'/:id/cambiar-estado'
+2026-03-09T22:03:10.739Z 
+router:layer new 
+'/:id/cambiar-estado'
+2026-03-09T22:03:10.739Z 
+router:route post 
+/:id/cambiar-estado
+2026-03-09T22:03:10.739Z 
+router:layer new '/'
+2026-03-09T22:03:10.739Z 
+router:route new 
+'/:id/contraoferta'
+2026-03-09T22:03:10.739Z 
+router:layer new 
+'/:id/contraoferta'
+2026-03-09T22:03:10.739Z 
+router:route post 
+/:id/contraoferta
+2026-03-09T22:03:10.739Z 
+router:layer new '/'
+2026-03-09T22:03:10.742Z 
+router use '/' authenticate
+2026-03-09T22:03:10.742Z 
+router:layer new '/'
+2026-03-09T22:03:10.742Z 
+router:route new 
+'/mis-ganancias'
+2026-03-09T22:03:10.742Z 
+router:layer new 
+'/mis-ganancias'
+2026-03-09T22:03:10.742Z 
+router:route get 
+/mis-ganancias
+2026-03-09T22:03:10.742Z 
+router:layer new '/'
+2026-03-09T22:03:10.746Z 
+router use '/' authenticate
+2026-03-09T22:03:10.747Z 
+router:layer new '/'
+2026-03-09T22:03:10.747Z 
+router use '/' <anonymous>
+2026-03-09T22:03:10.747Z 
+router:layer new '/'
+2026-03-09T22:03:10.747Z 
+router:route new '/users'
+2026-03-09T22:03:10.747Z 
+router:layer new '/users'
+2026-03-09T22:03:10.747Z 
+router:route get /users
+2026-03-09T22:03:10.747Z 
+router:layer new '/'
+2026-03-09T22:03:10.747Z 
+router:route new '/users'
+2026-03-09T22:03:10.747Z 
+router:layer new '/users'
+2026-03-09T22:03:10.747Z 
+router:route post /users
+2026-03-09T22:03:10.748Z 
+router:layer new '/'
+2026-03-09T22:03:10.748Z 
+router:route new '/users/:id'
+2026-03-09T22:03:10.748Z 
+router:layer new '/users/:id'
+2026-03-09T22:03:10.748Z 
+router:route put /users/:id
+2026-03-09T22:03:10.748Z 
+router:layer new '/'
+2026-03-09T22:03:10.748Z 
+router:route new 
+'/users/:id/toggle'
+2026-03-09T22:03:10.748Z 
+router:layer new 
+'/users/:id/toggle'
+2026-03-09T22:03:10.748Z 
+router:route put 
+/users/:id/toggle
+2026-03-09T22:03:10.748Z 
+router:layer new '/'
+2026-03-09T22:03:10.748Z 
+router:route new '/users/:id'
+2026-03-09T22:03:10.748Z 
+router:layer new '/users/:id'
+2026-03-09T22:03:10.748Z 
+router:route delete /users/:id
+2026-03-09T22:03:10.748Z 
+router:layer new '/'
+2026-03-09T22:03:10.748Z 
+router:route new 
+'/users/:id/stats'
+2026-03-09T22:03:10.748Z 
+router:layer new 
+'/users/:id/stats'
+2026-03-09T22:03:10.749Z 
+router:route get 
+/users/:id/stats
+2026-03-09T22:03:10.749Z 
+router:layer new '/'
+2026-03-09T22:03:10.749Z 
+router:route new '/settings'
+2026-03-09T22:03:10.749Z 
+router:layer new '/settings'
+2026-03-09T22:03:10.749Z 
+router:route get /settings
+2026-03-09T22:03:10.749Z 
+router:layer new '/'
+2026-03-09T22:03:10.749Z 
+router:route new '/settings'
+2026-03-09T22:03:10.749Z 
+router:layer new '/settings'
+2026-03-09T22:03:10.749Z 
+router:route put /settings
+2026-03-09T22:03:10.749Z 
+router:layer new '/'
+2026-03-09T22:03:10.749Z 
+router:route new '/logs'
+2026-03-09T22:03:10.749Z 
+router:layer new '/logs'
+2026-03-09T22:03:10.749Z 
+router:route get /logs
+2026-03-09T22:03:10.749Z 
+router:layer new '/'
+2026-03-09T22:03:10.749Z 
+router:route new '/login-logs'
+2026-03-09T22:03:10.749Z 
+router:layer new '/login-logs'
+2026-03-09T22:03:10.749Z 
+router:route get /login-logs
+2026-03-09T22:03:10.750Z 
+router:layer new '/'
+2026-03-09T22:03:10.750Z 
+router:route new '/stats'
+2026-03-09T22:03:10.750Z 
+router:layer new '/stats'
+2026-03-09T22:03:10.750Z 
+router:route get /stats
+2026-03-09T22:03:10.750Z 
+router:layer new '/'
+2026-03-09T22:03:10.859Z 
+router:route new '/tags'
+2026-03-09T22:03:10.859Z 
+router:layer new '/tags'
+2026-03-09T22:03:10.859Z 
+router:route get /tags
+2026-03-09T22:03:10.859Z 
+router:layer new '/'
+2026-03-09T22:03:10.859Z 
+router:route new '/tags'
+2026-03-09T22:03:10.859Z 
+router:layer new '/tags'
+2026-03-09T22:03:10.859Z 
+router:route post /tags
+2026-03-09T22:03:10.859Z 
+router:layer new '/'
+2026-03-09T22:03:10.860Z 
+router:route new 
+'/achievements'
+2026-03-09T22:03:10.860Z 
+router:layer new 
+'/achievements'
+2026-03-09T22:03:10.860Z 
+router:route get /achievements
+2026-03-09T22:03:10.860Z 
+router:layer new '/'
+2026-03-09T22:03:10.860Z 
+router:route new 
+'/achievements'
+2026-03-09T22:03:10.860Z 
+router:layer new 
+'/achievements'
+2026-03-09T22:03:10.860Z 
+router:route post 
+/achievements
+2026-03-09T22:03:10.860Z 
+router:layer new '/'
+2026-03-09T22:03:10.861Z 
+router:route new '/templates'
+2026-03-09T22:03:10.861Z 
+router:layer new '/templates'
+2026-03-09T22:03:10.861Z 
+router:route get /templates
+2026-03-09T22:03:10.861Z 
+router:layer new '/'
+2026-03-09T22:03:10.861Z 
+router:route new 
+'/templates/:id'
+2026-03-09T22:03:10.861Z 
+router:layer new 
+'/templates/:id'
+2026-03-09T22:03:10.861Z 
+router:route put 
+/templates/:id
+2026-03-09T22:03:10.861Z 
+router:layer new '/'
+2026-03-09T22:03:10.861Z 
+router:route new '/sessions'
+2026-03-09T22:03:10.862Z 
+router:layer new '/sessions'
+2026-03-09T22:03:10.862Z 
+router:route get /sessions
+2026-03-09T22:03:10.862Z 
+router:layer new '/'
+2026-03-09T22:03:10.862Z 
+router:route new 
+'/sessions/:id'
+2026-03-09T22:03:10.862Z 
+router:layer new 
+'/sessions/:id'
+2026-03-09T22:03:10.862Z 
+router:route delete 
+/sessions/:id
+2026-03-09T22:03:10.862Z 
+router:layer new '/'
+2026-03-09T22:03:10.862Z 
+router:route new 
+'/master-reset'
+2026-03-09T22:03:10.862Z 
+router:layer new 
+'/master-reset'
+2026-03-09T22:03:10.863Z 
+router:route post 
+/master-reset
+2026-03-09T22:03:10.863Z 
+router:layer new '/'
+2026-03-09T22:03:10.868Z 
+router:route new '/:id'
+2026-03-09T22:03:10.869Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.869Z 
+router:route get /:id
+2026-03-09T22:03:10.869Z 
+router:layer new '/'
+2026-03-09T22:03:10.869Z 
+router:route get /:id
+2026-03-09T22:03:10.869Z 
+router:layer new '/'
+2026-03-09T22:03:10.869Z 
+router:route new 
+'/stats/global'
+2026-03-09T22:03:10.869Z 
+router:layer new 
+'/stats/global'
+2026-03-09T22:03:10.870Z 
+router:route get /stats/global
+2026-03-09T22:03:10.870Z 
+router:layer new '/'
+2026-03-09T22:03:10.870Z 
+router:route get /stats/global
+2026-03-09T22:03:10.870Z 
+router:layer new '/'
+2026-03-09T22:03:10.901Z 
+router:route new '/'
+2026-03-09T22:03:10.901Z 
+router:layer new '/'
+2026-03-09T22:03:10.901Z 
+router:route post /
+2026-03-09T22:03:10.901Z 
+router:layer new '/'
+2026-03-09T22:03:10.902Z 
+router:route post /
+2026-03-09T22:03:10.902Z 
+router:layer new '/'
+2026-03-09T22:03:10.902Z 
+router:route new '/'
+2026-03-09T22:03:10.902Z 
+router:layer new '/'
+2026-03-09T22:03:10.902Z 
+router:route get /
+2026-03-09T22:03:10.902Z 
+router:layer new '/'
+2026-03-09T22:03:10.902Z 
+router:route get /
+2026-03-09T22:03:10.903Z 
+router:layer new '/'
+2026-03-09T22:03:10.903Z 
+router:route new '/pago'
+2026-03-09T22:03:10.903Z 
+router:layer new '/pago'
+2026-03-09T22:03:10.903Z 
+router:route post /pago
+2026-03-09T22:03:10.903Z 
+router:layer new '/'
+2026-03-09T22:03:10.903Z 
+router:route post /pago
+2026-03-09T22:03:10.903Z 
+router:layer new '/'
+2026-03-09T22:03:10.904Z 
+router:route new 
+'/:alquilerId/pagos'
+2026-03-09T22:03:10.904Z 
+router:layer new 
+'/:alquilerId/pagos'
+2026-03-09T22:03:10.904Z 
+router:route get 
+/:alquilerId/pagos
+2026-03-09T22:03:10.904Z 
+router:layer new '/'
+2026-03-09T22:03:10.904Z 
+router:route get 
+/:alquilerId/pagos
+2026-03-09T22:03:10.904Z 
+router:layer new '/'
+2026-03-09T22:03:10.914Z 
+router:route new '/'
+2026-03-09T22:03:10.914Z 
+router:layer new '/'
+2026-03-09T22:03:10.914Z 
+router:route post /
+2026-03-09T22:03:10.914Z 
+router:layer new '/'
+2026-03-09T22:03:10.914Z 
+router:route post /
+2026-03-09T22:03:10.914Z 
+router:layer new '/'
+2026-03-09T22:03:10.914Z 
+router:route new '/'
+2026-03-09T22:03:10.914Z 
+router:layer new '/'
+2026-03-09T22:03:10.915Z 
+router:route get /
+2026-03-09T22:03:10.915Z 
+router:layer new '/'
+2026-03-09T22:03:10.915Z 
+router:route get /
+2026-03-09T22:03:10.915Z 
+router:layer new '/'
+2026-03-09T22:03:10.915Z 
+router:route new '/:id'
+2026-03-09T22:03:10.915Z 
+router:layer new '/:id'
+2026-03-09T22:03:10.915Z 
+router:route patch /:id
+2026-03-09T22:03:10.915Z 
+router:layer new '/'
+2026-03-09T22:03:10.915Z 
+router:route patch /:id
+2026-03-09T22:03:10.915Z 
+router:layer new '/'
+2026-03-09T22:03:11.438Z 
+router:route new 
+'/factura/:ofertaId'
+2026-03-09T22:03:11.438Z 
+router:layer new 
+'/factura/:ofertaId'
+2026-03-09T22:03:11.439Z 
+router:route get 
+/factura/:ofertaId
+2026-03-09T22:03:11.439Z 
+router:layer new '/'
+2026-03-09T22:03:11.439Z 
+router:route get 
+/factura/:ofertaId
+2026-03-09T22:03:11.439Z 
+router:layer new '/'
+2026-03-09T22:03:11.439Z 
+router:route new 
+'/arras/:ofertaId'
+2026-03-09T22:03:11.439Z 
+router:layer new 
+'/arras/:ofertaId'
+2026-03-09T22:03:11.440Z 
+router:route get 
+/arras/:ofertaId
+2026-03-09T22:03:11.440Z 
+router:layer new '/'
+2026-03-09T22:03:11.440Z 
+router:route get 
+/arras/:ofertaId
+2026-03-09T22:03:11.440Z 
+router:layer new '/'
+2026-03-09T22:03:11.440Z 
+router:route new 
+'/alquiler/:alquilerId'
+2026-03-09T22:03:11.441Z 
+router:layer new 
+'/alquiler/:alquilerId'
+2026-03-09T22:03:11.441Z 
+router:route get 
+/alquiler/:alquilerId
+2026-03-09T22:03:11.441Z 
+router:layer new '/'
+2026-03-09T22:03:11.441Z 
+router:route get 
+/alquiler/:alquilerId
+2026-03-09T22:03:11.441Z 
+router:layer new '/'
+2026-03-09T22:03:11.450Z 
+router use '/' authenticate
+2026-03-09T22:03:11.451Z 
+router:layer new '/'
+2026-03-09T22:03:11.451Z 
+router:route new '/mis-puntos'
+2026-03-09T22:03:11.451Z 
+router:layer new '/mis-puntos'
+2026-03-09T22:03:11.451Z 
+router:route get /mis-puntos
+2026-03-09T22:03:11.451Z 
+router:layer new '/'
+2026-03-09T22:03:11.452Z 
+router:route new 
+'/ranking-semanal'
+2026-03-09T22:03:11.452Z 
+router:layer new 
+'/ranking-semanal'
+2026-03-09T22:03:11.452Z 
+router:route get 
+/ranking-semanal
+2026-03-09T22:03:11.452Z 
+router:layer new '/'
+2026-03-09T22:03:11.452Z 
+router:route new 
+'/ranking-mensual'
+2026-03-09T22:03:11.452Z 
+router:layer new 
+'/ranking-mensual'
+2026-03-09T22:03:11.452Z 
+router:route get 
+/ranking-mensual
+2026-03-09T22:03:11.453Z 
+router:layer new '/'
+2026-03-09T22:03:11.453Z 
+router:route new '/logros'
+2026-03-09T22:03:11.453Z 
+router:layer new '/logros'
+2026-03-09T22:03:11.453Z 
+router:route get /logros
+2026-03-09T22:03:11.453Z 
+router:layer new '/'
+2026-03-09T22:03:11.453Z 
+router:route new 
+'/admin/config'
+2026-03-09T22:03:11.453Z 
+router:layer new 
+'/admin/config'
+2026-03-09T22:03:11.453Z 
+router:route post 
+/admin/config
+2026-03-09T22:03:11.454Z 
+router:layer new '/'
+2026-03-09T22:03:11.460Z 
+router use '/' authenticate
+2026-03-09T22:03:11.460Z 
+router:layer new '/'
+2026-03-09T22:03:11.460Z 
+router use '/' <anonymous>
+2026-03-09T22:03:11.460Z 
+router:layer new '/'
+2026-03-09T22:03:11.461Z 
+router:route new '/forecast'
+2026-03-09T22:03:11.461Z 
+router:layer new '/forecast'
+2026-03-09T22:03:11.461Z 
+router:route get /forecast
+2026-03-09T22:03:11.461Z 
+router:layer new '/'
+2026-03-09T22:03:11.461Z 
+router:route new 
+'/performance'
+2026-03-09T22:03:11.461Z 
+router:layer new 
+'/performance'
+2026-03-09T22:03:11.461Z 
+router:route get /performance
+2026-03-09T22:03:11.461Z 
+router:layer new '/'
+2026-03-09T22:03:11.467Z 
+router use '/' authenticate
+2026-03-09T22:03:11.468Z 
+router:layer new '/'
+2026-03-09T22:03:11.469Z 
+router:route new 
+'/cliente/:clientId'
+2026-03-09T22:03:11.469Z 
+router:layer new 
+'/cliente/:clientId'
+2026-03-09T22:03:11.469Z 
+router:route get 
+/cliente/:clientId
+2026-03-09T22:03:11.469Z 
+router:layer new '/'
+2026-03-09T22:03:11.470Z 
+router:route new '/encuesta'
+2026-03-09T22:03:11.470Z 
+router:layer new '/encuesta'
+2026-03-09T22:03:11.470Z 
+router:route post /encuesta
+2026-03-09T22:03:11.470Z 
+router:layer new '/'
+2026-03-09T22:03:11.474Z 
+router use '/' authenticate
+2026-03-09T22:03:11.475Z 
+router:layer new '/'
+2026-03-09T22:03:11.475Z 
+router:route new '/catalogo'
+2026-03-09T22:03:11.475Z 
+router:layer new '/catalogo'
+2026-03-09T22:03:11.475Z 
+router:route get /catalogo
+2026-03-09T22:03:11.475Z 
+router:layer new '/'
+2026-03-09T22:03:11.476Z 
+router:route new '/'
+2026-03-09T22:03:11.476Z 
+router:layer new '/'
+2026-03-09T22:03:11.476Z 
+router:route get /
+2026-03-09T22:03:11.476Z 
+router:layer new '/'
+2026-03-09T22:03:11.476Z 
+router:route new '/'
+2026-03-09T22:03:11.476Z 
+router:layer new '/'
+2026-03-09T22:03:11.477Z 
+router:route post /
+2026-03-09T22:03:11.477Z 
+router:layer new '/'
+2026-03-09T22:03:11.477Z 
+router:route new '/:id/toggle'
+2026-03-09T22:03:11.477Z 
+router:layer new '/:id/toggle'
+2026-03-09T22:03:11.477Z 
+router:route put /:id/toggle
+2026-03-09T22:03:11.477Z 
+router:layer new '/'
+2026-03-09T22:03:11.477Z 
+router:route new '/:id'
+2026-03-09T22:03:11.477Z 
+router:layer new '/:id'
+2026-03-09T22:03:11.478Z 
+router:route delete /:id
+2026-03-09T22:03:11.478Z 
+router:layer new '/'
+2026-03-09T22:03:11.478Z 
+router:route new '/historial'
+2026-03-09T22:03:11.478Z 
+router:layer new '/historial'
+2026-03-09T22:03:11.478Z 
+router:route get /historial
+2026-03-09T22:03:11.478Z 
+router:layer new '/'
+2026-03-09T22:03:11.478Z 
+router:route new '/:id/test'
+2026-03-09T22:03:11.478Z 
+router:layer new '/:id/test'
+2026-03-09T22:03:11.478Z 
+router:route post /:id/test
+2026-03-09T22:03:11.479Z 
+router:layer new '/'
+2026-03-09T22:03:11.491Z 
+router use '/' authenticate
+2026-03-09T22:03:11.491Z 
+router:layer new '/'
+2026-03-09T22:03:11.491Z 
+router use '/' <anonymous>
+2026-03-09T22:03:11.491Z 
+router:layer new '/'
+2026-03-09T22:03:11.491Z 
+router:route new '/team'
+2026-03-09T22:03:11.492Z 
+router:layer new '/team'
+2026-03-09T22:03:11.492Z 
+router:route get /team
+2026-03-09T22:03:11.492Z 
+router:layer new '/'
+2026-03-09T22:03:11.492Z 
+router:route new '/assign'
+2026-03-09T22:03:11.492Z 
+router:layer new '/assign'
+2026-03-09T22:03:11.492Z 
+router:route post /assign
+2026-03-09T22:03:11.492Z 
+router:layer new '/'
+2026-03-09T22:03:11.493Z 
+router:route new 
+'/agent/:id/availability'
+2026-03-09T22:03:11.493Z 
+router:layer new 
+'/agent/:id/availability'
+2026-03-09T22:03:11.493Z 
+router:route put 
+/agent/:id/availability
+2026-03-09T22:03:11.493Z 
+router:layer new '/'
+2026-03-09T22:03:11.493Z 
+router:route new 
+'/captations/:id/validate'
+2026-03-09T22:03:11.493Z 
+router:layer new 
+'/captations/:id/validate'
+2026-03-09T22:03:11.493Z 
+router:route put 
+/captations/:id/validate
+2026-03-09T22:03:11.493Z 
+router:layer new '/'
+2026-03-09T22:03:11.494Z 
+router:route new '/stats'
+2026-03-09T22:03:11.494Z 
+router:layer new '/stats'
+2026-03-09T22:03:11.494Z 
+router:route get /stats
+2026-03-09T22:03:11.494Z 
+router:layer new '/'
+2026-03-09T22:03:11.494Z 
+router:route new '/calendar'
+2026-03-09T22:03:11.494Z 
+router:layer new '/calendar'
+2026-03-09T22:03:11.494Z 
+router:route get /calendar
+2026-03-09T22:03:11.495Z 
+router:layer new '/'
+2026-03-09T22:03:11.501Z 
+router use '/' authenticate
+2026-03-09T22:03:11.502Z 
+router:layer new '/'
+2026-03-09T22:03:11.502Z 
+router:route new '/metrics'
+2026-03-09T22:03:11.502Z 
+router:layer new '/metrics'
+2026-03-09T22:03:11.502Z 
+router:route get /metrics
+2026-03-09T22:03:11.502Z 
+router:layer new '/'
+2026-03-09T22:03:11.503Z 
+router:route new 
+'/achievements'
+2026-03-09T22:03:11.503Z 
+router:layer new 
+'/achievements'
+2026-03-09T22:03:11.503Z 
+router:route get /achievements
+2026-03-09T22:03:11.503Z 
+router:layer new '/'
+2026-03-09T22:03:11.509Z 
+router use '/' authenticate
+2026-03-09T22:03:11.510Z 
+router:layer new '/'
+2026-03-09T22:03:11.511Z 
+router:route new '/stats'
+2026-03-09T22:03:11.511Z 
+router:layer new '/stats'
+2026-03-09T22:03:11.511Z 
+router:route get /stats
+2026-03-09T22:03:11.511Z 
+router:layer new '/'
+2026-03-09T22:03:11.512Z 
+router:route get /stats
+2026-03-09T22:03:11.512Z 
+router:layer new '/'
+2026-03-09T22:03:11.529Z 
+router use '/' authenticate
+2026-03-09T22:03:11.529Z 
+router:layer new '/'
+2026-03-09T22:03:11.529Z 
+router use '/' <anonymous>
+2026-03-09T22:03:11.530Z 
+router:layer new '/'
+2026-03-09T22:03:11.530Z 
+router:route new '/dashboard'
+2026-03-09T22:03:11.530Z 
+router:layer new '/dashboard'
+2026-03-09T22:03:11.530Z 
+router:route get /dashboard
+2026-03-09T22:03:11.530Z 
+router:layer new '/'
+2026-03-09T22:03:11.530Z 
+router:route new '/properties'
+2026-03-09T22:03:11.531Z 
+router:layer new '/properties'
+2026-03-09T22:03:11.531Z 
+router:route get /properties
+2026-03-09T22:03:11.531Z 
+router:layer new '/'
+2026-03-09T22:03:11.531Z 
+router:route new 
+'/captations/convert'
+2026-03-09T22:03:11.531Z 
+router:layer new 
+'/captations/convert'
+2026-03-09T22:03:11.531Z 
+router:route post 
+/captations/convert
+2026-03-09T22:03:11.532Z 
+router:layer new '/'
+2026-03-09T22:03:11.532Z 
+router:route new 
+'/properties/:id/status'
+2026-03-09T22:03:11.532Z 
+router:layer new 
+'/properties/:id/status'
+2026-03-09T22:03:11.532Z 
+router:route put 
+/properties/:id/status
+2026-03-09T22:03:11.532Z 
+router:layer new '/'
+2026-03-09T22:03:11.532Z 
+router:route new '/clients'
+2026-03-09T22:03:11.533Z 
+router:layer new '/clients'
+2026-03-09T22:03:11.533Z 
+router:route get /clients
+2026-03-09T22:03:11.533Z 
+router:layer new '/'
+2026-03-09T22:03:11.533Z 
+router:route new '/clients'
+2026-03-09T22:03:11.533Z 
+router:layer new '/clients'
+2026-03-09T22:03:11.533Z 
+router:route post /clients
+2026-03-09T22:03:11.533Z 
+router:layer new '/'
+2026-03-09T22:03:11.534Z 
+router:route new 
+'/clients/:id/timeline'
+2026-03-09T22:03:11.534Z 
+router:layer new 
+'/clients/:id/timeline'
+2026-03-09T22:03:11.534Z 
+router:route get 
+/clients/:id/timeline
+2026-03-09T22:03:11.534Z 
+router:layer new '/'
+2026-03-09T22:03:11.534Z 
+router:route new '/offers'
+2026-03-09T22:03:11.534Z 
+router:layer new '/offers'
+2026-03-09T22:03:11.535Z 
+router:route get /offers
+2026-03-09T22:03:11.535Z 
+router:layer new '/'
+2026-03-09T22:03:11.535Z 
+router:route new '/offers'
+2026-03-09T22:03:11.535Z 
+router:layer new '/offers'
+2026-03-09T22:03:11.535Z 
+router:route post /offers
+2026-03-09T22:03:11.535Z 
+router:layer new '/'
+2026-03-09T22:03:11.536Z 
+router:route new 
+'/offers/:id/stage'
+2026-03-09T22:03:11.536Z 
+router:layer new 
+'/offers/:id/stage'
+2026-03-09T22:03:11.536Z 
+router:route put 
+/offers/:id/stage
+2026-03-09T22:03:11.536Z 
+router:layer new '/'
+2026-03-09T22:03:11.536Z 
+router:route new 
+'/offers/:id/close'
+2026-03-09T22:03:11.536Z 
+router:layer new 
+'/offers/:id/close'
+2026-03-09T22:03:11.536Z 
+router:route put 
+/offers/:id/close
+2026-03-09T22:03:11.537Z 
+router:layer new '/'
+2026-03-09T22:03:11.537Z 
+router:route new '/visits'
+2026-03-09T22:03:11.537Z 
+router:layer new '/visits'
+2026-03-09T22:03:11.538Z 
+router:route post /visits
+2026-03-09T22:03:11.538Z 
+router:layer new '/'
+2026-03-09T22:03:11.538Z 
+router:route new 
+'/visits/:id/cancel'
+2026-03-09T22:03:11.538Z 
+router:layer new 
+'/visits/:id/cancel'
+2026-03-09T22:03:11.538Z 
+router:route put 
+/visits/:id/cancel
+2026-03-09T22:03:11.538Z 
+router:layer new '/'
+2026-03-09T22:03:11.539Z 
+router:route new 
+'/visits/:id/noshow'
+2026-03-09T22:03:11.539Z 
+router:layer new 
+'/visits/:id/noshow'
+2026-03-09T22:03:11.539Z 
+router:route put 
+/visits/:id/noshow
+2026-03-09T22:03:11.539Z 
+router:layer new '/'
+2026-03-09T22:03:11.539Z 
+router:route new '/metrics'
+2026-03-09T22:03:11.539Z 
+router:layer new '/metrics'
+2026-03-09T22:03:11.540Z 
+router:route get /metrics
+2026-03-09T22:03:11.540Z 
+router:layer new '/'
+2026-03-09T22:03:11.540Z 
+router:route new '/rentals'
+2026-03-09T22:03:11.540Z 
+router:layer new '/rentals'
+2026-03-09T22:03:11.541Z 
+router:route get /rentals
+2026-03-09T22:03:11.541Z 
+router:layer new '/'
+2026-03-09T22:03:11.541Z 
+router:route new 
+'/rentals/payment'
+2026-03-09T22:03:11.541Z 
+router:layer new 
+'/rentals/payment'
+2026-03-09T22:03:11.541Z 
+router:route post 
+/rentals/payment
+2026-03-09T22:03:11.542Z 
+router:layer new '/'
+2026-03-09T22:03:11.542Z 
+router:route new 
+'/rentals/incident'
+2026-03-09T22:03:11.542Z 
+router:layer new 
+'/rentals/incident'
+2026-03-09T22:03:11.542Z 
+router:route post 
+/rentals/incident
+2026-03-09T22:03:11.542Z 
+router:layer new '/'
+2026-03-09T22:03:11.548Z 
+router use '/' authenticate
+2026-03-09T22:03:11.549Z 
+router:layer new '/'
+2026-03-09T22:03:11.549Z 
+router:route new '/'
+2026-03-09T22:03:11.549Z 
+router:layer new '/'
+2026-03-09T22:03:11.549Z 
+router:route get /
+2026-03-09T22:03:11.550Z 
+router:layer new '/'
+2026-03-09T22:03:11.550Z 
+router:route new '/leer-todas'
+2026-03-09T22:03:11.550Z 
+router:layer new '/leer-todas'
+2026-03-09T22:03:11.551Z 
+router:route patch /leer-todas
+2026-03-09T22:03:11.551Z 
+router:layer new '/'
+2026-03-09T22:03:11.551Z 
+router:route new '/:id/leer'
+2026-03-09T22:03:11.551Z 
+router:layer new '/:id/leer'
+2026-03-09T22:03:11.552Z 
+router:route patch /:id/leer
+2026-03-09T22:03:11.552Z 
+router:layer new '/'
+2026-03-09T22:03:11.552Z 
+router:route new '/:id'
+2026-03-09T22:03:11.553Z 
+router:layer new '/:id'
+2026-03-09T22:03:11.553Z 
+router:route delete /:id
+2026-03-09T22:03:11.553Z 
+router:layer new '/'
+2026-03-09T22:03:11.578Z 
+router:route new '/publico'
+2026-03-09T22:03:11.579Z 
+router:layer new '/publico'
+2026-03-09T22:03:11.579Z 
+router:route post /publico
+2026-03-09T22:03:11.579Z 
+router:layer new '/'
+2026-03-09T22:03:11.579Z 
+router:route new '/'
+2026-03-09T22:03:11.579Z 
+router:layer new '/'
+C:\Users\EQUIPO\Documents\Arch
+ivo_Escritorio\immOS\backend\n
+ode_modules\router\lib\route.j
+s:228
+        throw new 
+TypeError('argument handler 
+must be a function')
+        ^
+
+TypeError: argument handler 
+must be a function
+    at Route.<computed> [as 
+get] (C:\Users\EQUIPO\Document
+s\Archivo_Escritorio\immOS\bac
+kend\node_modules\router\lib\r
+oute.js:228:15)
+    at Router.<computed> [as 
+get] (C:\Users\EQUIPO\Document
+s\Archivo_Escritorio\immOS\bac
+kend\node_modules\router\index
+.js:448:19)
+    at Object.<anonymous> (C:\
+Users\EQUIPO\Documents\Archivo
+_Escritorio\immOS\backend\src\
+routes\leadsRoutes.js:15:8)
+    at Module._compile (node:i
+nternal/modules/cjs/loader:168
+8:14)
+    at Object..js (node:intern
+al/modules/cjs/loader:1820:10)
+    at Module.load (node:inter
+nal/modules/cjs/loader:1423:32
+)
+    at Function._load (node:in
+ternal/modules/cjs/loader:1246
+:12)
+    at 
+TracingChannel.traceSync (node
+:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:in
+ternal/modules/cjs/loader:235:
+24)
+    at Module.require (node:in
+ternal/modules/cjs/loader:1445
+:12)
+
+Node.js v22.18.0

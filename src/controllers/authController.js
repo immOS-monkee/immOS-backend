@@ -35,7 +35,7 @@ exports.login = async (req, res) => {
         const { email, password } = req.body;
         console.log(`[AUTH] Intento de login para: ${email}`);
 
-        // --- BYPASS DE DESARROLLO (MODO ROBUSTO) ---
+        /* BYPASS DE DESARROLLO DESACTIVADO PARA USAR ID REAL
         const DEV_ADMIN_EMAIL = 'admin@inmoos.com';
         const DEV_ADMIN_PASS = 'admin_password_123';
 
@@ -52,7 +52,7 @@ exports.login = async (req, res) => {
             res.cookie('refreshToken', refreshToken, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
             return res.json({ accessToken, user: userMock });
         }
-        // -----------------------------------------------------------------------
+        */
 
         // 1. Get User
         const { data: dbUser, error: dbError } = await supabase

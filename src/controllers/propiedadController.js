@@ -8,7 +8,8 @@ exports.createPropiedad = async (req, res) => {
         const {
             direccion, tipo_propiedad, operacion,
             precio_venta, precio_alquiler, caracteristicas,
-            coordenadas, vendedor_id, captacion_id
+            coordenadas, vendedor_id, captacion_id,
+            images
         } = req.body;
 
         if (!direccion || !tipo_propiedad || !operacion) {
@@ -41,10 +42,22 @@ exports.createPropiedad = async (req, res) => {
                 .eq('id', captacion_id);
         }
 
+        if (images && images.length > 0) {
+            const mediaRecords = images.map((url, idx) => ({
+                propiedad_id: propiedad.id,
+                url,
+                tipo: 'foto',
+                orden: idx,
+                es_principal: idx === 0
+            }));
+
+            await supabase.from('multimedia_propiedad').insert(mediaRecords);
+        }
+
         res.status(201).json({ message: 'Propiedad creada', propiedad });
     } catch (error) {
         console.error('Create Propiedad Error:', error);
-        res.status(500).json({ error: 'Error al crear la propiedad' });
+        res.status(500).json({ error: error.message || error.details || 'Error interno de base de datos' });
     }
 };
 
@@ -230,5 +243,44 @@ exports.convertFromCaptacion = async (req, res) => {
     } catch (error) {
         console.error('Convert Captacion Error:', error);
         res.status(500).json({ error: 'Error al convertir la captación' });
+    }
+};
+
+// === DELETE ===
+exports.deletePropiedad = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Solo permitir borrar al creador (agente) o a un super_admin/admin si existiera esa validación, 
+        // pero por ahora el token nos dice quién es. Podríamos checar roles aquí.
+        const rol = req.user.rol;
+
+        // Verificar si existe la propiedad
+        const { data: propiedad, error: fetchError } = await supabase
+            .from('propiedades')
+            .select('agente_id')
+            .eq('id', id)
+            .single();
+
+        if (fetchError || !propiedad) {
+            return res.status(404).json({ error: 'Propiedad no encontrada' });
+        }
+
+        // Si es agente_captacion, solo puede borrar suyas; super_admin puede todas.
+        if (rol === 'agente_captacion' && propiedad.agente_id !== req.user.id) {
+            return res.status(403).json({ error: 'No autorizado para borrar esta propiedad' });
+        }
+
+        const { error: deleteError } = await supabase
+            .from('propiedades')
+            .delete()
+            .eq('id', id);
+
+        if (deleteError) throw deleteError;
+
+        res.json({ message: 'Propiedad eliminada correctamente' });
+    } catch (error) {
+        console.error('Delete Propiedad Error:', error);
+        res.status(500).json({ error: error.message || 'Error al eliminar la propiedad' });
     }
 };

@@ -30,7 +30,9 @@ const agentStatsRoutes = require('./routes/agentStatsRoutes');
 const marketingRoutes = require('./routes/marketingRoutes');
 const closingAgentRoutes = require('./routes/closingAgentRoutes');
 const notificacionRoutes = require('./routes/notificacionRoutes');
+const leadsRoutes = require('./routes/leadsRoutes'); // <-- Nivel Frontal de Leads Web
 const mensajeRoutes = require('./routes/mensajeRoutes');
+const configRoutes = require('./routes/configRoutes');
 
 
 const app = express();
@@ -79,8 +81,10 @@ app.use('/api/v1/office-admin', officeAdminRoutes);
 app.use('/api/v1/agent-stats', agentStatsRoutes);
 app.use('/api/v1/marketing', marketingRoutes);
 app.use('/api/v1/closing-agent', closingAgentRoutes);
+app.use('/api/v1/leads', leadsRoutes);
 app.use('/api/v1/notificacion', notificacionRoutes);
 app.use('/api/v1/mensaje', mensajeRoutes);
+app.use('/api/v1/config', configRoutes);
 
 
 // Base Route
