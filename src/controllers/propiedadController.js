@@ -284,3 +284,30 @@ exports.deletePropiedad = async (req, res) => {
         res.status(500).json({ error: error.message || 'Error al eliminar la propiedad' });
     }
 };
+// === PUBLIC DETAIL (For Landing Pages / Promo) ===
+exports.getPropiedadPublica = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Solo traemos datos no sensibles
+        const { data: propiedad, error } = await supabase
+            .from('propiedades')
+            .select(`
+                id, direccion, tipo_propiedad, operacion, 
+                precio_venta, precio_alquiler, caracteristicas, 
+                descripcion,
+                multimedia_propiedad(*)
+            `)
+            .eq('id', id)
+            .eq('estado', 'disponible') // Solo casas a la venta/alquiler
+            .single();
+
+        if (error) throw error;
+        if (!propiedad) return res.status(404).json({ error: 'Propiedad no disponible o no encontrada' });
+
+        res.json(propiedad);
+    } catch (error) {
+        console.error('Get Public Propiedad Error:', error);
+        res.status(500).json({ error: 'Error al obtener datos públicos de la propiedad' });
+    }
+};

@@ -4,7 +4,7 @@ const winston = require('winston');
 // 1. Recibir Lead desde el formulario público (No requiere JWT)
 exports.crearLeadPublico = async (req, res) => {
     try {
-        const { nombre, telefono, descripcion_busqueda, zona_interes, origen } = req.body;
+        const { nombre, telefono, descripcion_busqueda, zona_interes, origen, propiedad_titular_id } = req.body;
 
         if (!nombre || !telefono) {
             return res.status(400).json({ error: 'Nombre y WhatsApp son obligatorios' });
@@ -18,6 +18,7 @@ exports.crearLeadPublico = async (req, res) => {
                 descripcion_busqueda,
                 zona_interes,
                 origen: origen || 'Otro',
+                propiedad_titular_id: propiedad_titular_id || null,
                 estado: 'nuevo'
             }])
             .select();
