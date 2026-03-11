@@ -66,10 +66,18 @@ exports.createPropiedad = async (req, res) => {
 exports.getPropiedades = async (req, res) => {
     try {
         const { estado, tipo, operacion, agente_id: filterAgent } = req.query;
-        const rol = req.user.rol;
-        const userId = req.user.id;
+        const { rol, id: userId } = req.user;
 
-        let query = supabase.from('propiedades').select('*, multimedia_propiedad(url, orden, es_principal, tipo)');
+        // Query with dual joins: 
+        // 1. clientes (vendedor_id)
+        // 2. usuarios (propietario_usuario_id)
+        let query = supabase.from('propiedades')
+            .select(`
+                *,
+                multimedia_propiedad(url, orden, es_principal, tipo),
+                clientes!vendedor_id(nombre),
+                usuarios!propietario_usuario_id(nombre)
+            `);
 
         // Role-based visibility (Surgical Intervention)
         if (rol === 'agente_captacion') {
@@ -101,8 +109,14 @@ exports.getPropiedades = async (req, res) => {
 
         query = query.order('created_at', { ascending: false });
 
-        const { data: propiedades, error } = await query;
+        const { data: rawPropiedades, error } = await query;
         if (error) throw error;
+
+        // Harmonize owner name for frontend: use cliente name OR usuario name
+        const propiedades = rawPropiedades.map(p => ({
+            ...p,
+            vendedor_nombre: p.clientes?.nombre || p.usuarios?.nombre || null
+        }));
 
         res.json(propiedades);
     } catch (error) {
@@ -116,14 +130,25 @@ exports.getPropiedad = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const { data: propiedad, error } = await supabase
+        const { data: p, error } = await supabase
             .from('propiedades')
-            .select('*, multimedia_propiedad(*)')
+            .select(`
+                *,
+                multimedia_propiedad(*),
+                clientes!vendedor_id(nombre, email, telefono),
+                usuarios!propietario_usuario_id(nombre, email)
+            `)
             .eq('id', id)
             .single();
 
         if (error) throw error;
-        if (!propiedad) return res.status(404).json({ error: 'Propiedad no encontrada' });
+        if (!p) return res.status(404).json({ error: 'Propiedad no encontrada' });
+
+        // Harmonize
+        const propiedad = {
+            ...p,
+            vendedor_nombre: p.clientes?.nombre || p.usuarios?.nombre || null
+        };
 
         res.json(propiedad);
     } catch (error) {
@@ -145,7 +170,8 @@ exports.updatePropiedad = async (req, res) => {
         delete updates.updated_at;
         delete updates.created_at;
         delete updates.fecha_estado;
-        delete updates.vendedor_id;
+        
+        // Allowed: vendedor_id, propietario_usuario_id, etc.
         
         updates.updated_at = new Date().toISOString();
 
