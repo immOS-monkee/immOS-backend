@@ -48,7 +48,12 @@ exports.crearLeadPublico = async (req, res) => {
 
     } catch (err) {
         winston.error('Error al crear Lead Público:', err);
-        return res.status(500).json({ error: 'Fallo al procesar el formulario de contacto', details: err });
+        return res.status(500).json({ 
+            error: 'Fallo al procesar el formulario de contacto', 
+            details: err.message || 'Error desconocido',
+            hint: err.hint,
+            code: err.code 
+        });
     }
 };
 
