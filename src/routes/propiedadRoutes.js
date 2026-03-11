@@ -3,7 +3,8 @@ const router = express.Router();
 const ctrl = require('../controllers/propiedadController');
 const { authenticate } = require('../middleware/authMiddleware');
 
-// Ruta Pública (No requiere token)
+// Rutas Públicas (No requieren token)
+router.get('/publica', ctrl.getPublicPropertiesFiltered);
 router.get('/publica/:id', ctrl.getPropiedadPublica);
 
 router.use(authenticate);

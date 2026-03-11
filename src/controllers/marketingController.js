@@ -10,7 +10,7 @@ exports.getMarketingStats = async (req, res) => {
         const [propiedades, clientes, captaciones, visitas] = await Promise.all([
             supabase.from('propiedades').select('id', { count: 'exact', head: true }).eq('estado', 'disponible'),
             supabase.from('clientes').select('id', { count: 'exact', head: true }),
-            supabase.from('captaciones_campo').select('id', { count: 'exact', head: true }),
+            supabase.from('leads_web').select('id', { count: 'exact', head: true }),
             supabase.from('visitas').select('id', { count: 'exact', head: true })
         ]);
 

@@ -342,6 +342,28 @@ exports.deletePropiedad = async (req, res) => {
         res.status(500).json({ error: error.message || 'Error al eliminar la propiedad' });
     }
 };
+// === PUBLIC LIST (For suggestions in Landing Page) ===
+exports.getPublicPropertiesFiltered = async (req, res) => {
+    try {
+        const { not, tipo, limit = 3 } = req.query;
+        let query = supabase
+            .from('propiedades')
+            .select('id, direccion, tipo_propiedad, precio_venta, precio_alquiler, multimedia_propiedad(*)')
+            .eq('estado', 'disponible')
+            .limit(parseInt(limit));
+
+        if (not) query = query.neq('id', not);
+        if (tipo) query = query.eq('tipo_propiedad', tipo);
+
+        const { data, error } = await query;
+        if (error) throw error;
+        res.json(data);
+    } catch (error) {
+        console.error('Get Filtered Public Props Error:', error);
+        res.status(500).json({ error: 'Error al listar propiedades' });
+    }
+};
+
 // === PUBLIC DETAIL (For Landing Pages / Promo) ===
 exports.getPropiedadPublica = async (req, res) => {
     try {

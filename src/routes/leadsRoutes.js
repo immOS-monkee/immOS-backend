@@ -14,5 +14,6 @@ router.post('/publico', leadsController.crearLeadPublico);
 // ==========================================
 router.get('/', authenticate, leadsController.obtenerLeads);
 router.patch('/:id/estado', authenticate, leadsController.actualizarEstadoLead);
+router.post('/:id/convertir', authenticate, leadsController.convertirLead);
 
 module.exports = router;
