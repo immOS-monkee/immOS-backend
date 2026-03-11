@@ -181,16 +181,32 @@ exports.updatePropiedad = async (req, res) => {
         updates.updated_at = new Date().toISOString();
 
         const allowedUpdates = { ...updates };
+        console.log(`[BACKEND] Intentando guardar cambios en propiedad ${id}:`, JSON.stringify(allowedUpdates, null, 2));
+
         // Permit propietario_usuario_id as a valid field to update
-        const { data: propiedad, error } = await supabase
+        const { data: p, error } = await supabase
             .from('propiedades')
             .update(allowedUpdates)
             .eq('id', id)
-            .select()
+            .select(`
+                *,
+                multimedia_propiedad(*),
+                clientes!vendedor_id(nombre, email, telefono),
+                usuarios!propietario_usuario_id(nombre, email)
+            `)
             .single();
 
-        if (error) throw error;
+        if (error) {
+            console.error('[BACKEND ERROR] Supabase rechazó el guardado:', error);
+            throw error;
+        }
 
+        const propiedad = {
+            ...p,
+            vendedor_nombre: p.clientes?.nombre || p.usuarios?.nombre || null
+        };
+
+        console.log('[BACKEND] Guardado exitoso. Resultado armonizado:', !!propiedad.propietario_usuario_id ? 'Propietario vinculado' : 'Sin propietario');
         res.json({ message: 'Propiedad actualizada', propiedad });
     } catch (error) {
         console.error('Update Propiedad Error:', error);
