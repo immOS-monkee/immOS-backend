@@ -171,6 +171,11 @@ exports.updatePropiedad = async (req, res) => {
         delete updates.created_at;
         delete updates.fecha_estado;
         
+        // Campos de Joins o Cálculos (Importante para evitar errores 400 en Supabase)
+        delete updates.clientes;
+        delete updates.usuarios;
+        delete updates.vendedor_nombre;
+        
         // Allowed: vendedor_id, propietario_usuario_id, etc.
         
         updates.updated_at = new Date().toISOString();
