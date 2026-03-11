@@ -8,7 +8,7 @@ exports.getClientFidelityStatus = async (req, res) => {
         // 1. Fetch closed deals with this client
         const { data: sales, error: sError } = await supabase
             .from('ofertas')
-            .select('id, prop_id, updated_at, importe_final, tipo_operacion')
+            .select('id, propiedad_id, updated_at, importe_final, tipo_operacion')
             .eq('comprador_id', clientId)
             .eq('estado', 'cerrada_exitosa');
 
