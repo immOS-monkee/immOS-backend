@@ -75,18 +75,20 @@ exports.getPropiedades = async (req, res) => {
         if (rol === 'agente_captacion') {
             query = query.eq('agente_id', userId);
         } else if (rol === 'propietario') {
-            // Bridge: Find cliente ID by user email
-            const { data: cliente } = await supabase
+            // Direct link: filter by propietario_usuario_id (UUID de usuarios)
+            // Fallback: also check vendedor bridge by email in clientes
+            const { data: clienteMatch } = await supabase
                 .from('clientes')
                 .select('id')
                 .eq('email', req.user.email || '')
-                .single();
+                .maybeSingle();
 
-            if (cliente) {
-                query = query.eq('vendedor_id', cliente.id);
+            if (clienteMatch) {
+                // Use OR: property linked via new direct field OR via old client bridge
+                query = query.or(`propietario_usuario_id.eq.${userId},vendedor_id.eq.${clienteMatch.id}`);
             } else {
-                // Return no results if bridge fails
-                return res.json([]);
+                // Only use the new direct field
+                query = query.eq('propietario_usuario_id', userId);
             }
         } else if (rol === 'comprador') {
             // Buyers only see available properties
@@ -147,9 +149,11 @@ exports.updatePropiedad = async (req, res) => {
         
         updates.updated_at = new Date().toISOString();
 
+        const allowedUpdates = { ...updates };
+        // Permit propietario_usuario_id as a valid field to update
         const { data: propiedad, error } = await supabase
             .from('propiedades')
-            .update(updates)
+            .update(allowedUpdates)
             .eq('id', id)
             .select()
             .single();
