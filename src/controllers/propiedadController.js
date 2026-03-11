@@ -223,6 +223,7 @@ exports.convertFromCaptacion = async (req, res) => {
                 precio_venta: d.operation === 'venta' ? (d.price || null) : null,
                 precio_alquiler: d.operation === 'alquiler' ? (d.price || null) : null,
                 caracteristicas: d.characteristics || {},
+                vendedor_id: d.vendedor_id || null, // Vínculo quirúrgico al propietario
                 estado: 'disponible'
             }])
             .select()
