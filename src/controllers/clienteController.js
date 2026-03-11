@@ -108,7 +108,12 @@ exports.getCliente = async (req, res) => {
         res.json(cliente);
     } catch (error) {
         console.error('Get Cliente Error:', error);
-        res.status(500).json({ error: 'Error al obtener cliente' });
+        res.status(500).json({ 
+            error: 'Error al obtener cliente', 
+            details: error.message,
+            hint: error.hint,
+            code: error.code
+        });
     }
 };
 
@@ -150,7 +155,12 @@ exports.getTimeline = async (req, res) => {
         res.json(events);
     } catch (error) {
         console.error('Get Timeline Error:', error);
-        res.status(500).json({ error: 'Error al obtener timeline' });
+        res.status(500).json({ 
+            error: 'Error al obtener timeline',
+            details: error.message,
+            hint: error.hint,
+            code: error.code
+        });
     }
 };
 

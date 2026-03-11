@@ -37,7 +37,12 @@ exports.getClientFidelityStatus = async (req, res) => {
         });
     } catch (err) {
         logger.error('Fidelizacion Error:', err);
-        res.status(500).json({ error: 'Error al consultar fidelización del cliente' });
+        res.status(500).json({ 
+            error: 'Error al consultar fidelización del cliente',
+            details: err.message,
+            hint: err.hint,
+            code: err.code
+        });
     }
 };
 
