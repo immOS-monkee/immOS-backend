@@ -178,10 +178,7 @@ exports.updatePropiedad = async (req, res) => {
         
         // Allowed: vendedor_id, propietario_usuario_id, etc.
         
-        updates.updated_at = new Date().toISOString();
-
         const allowedUpdates = { ...updates };
-        console.log(`[BACKEND] Intentando guardar cambios en propiedad ${id}:`, JSON.stringify(allowedUpdates, null, 2));
 
         // Permit propietario_usuario_id as a valid field to update
         const { data: p, error } = await supabase
@@ -206,7 +203,6 @@ exports.updatePropiedad = async (req, res) => {
             vendedor_nombre: p.clientes?.nombre || p.usuarios?.nombre || null
         };
 
-        console.log('[BACKEND] Guardado exitoso. Resultado armonizado:', !!propiedad.propietario_usuario_id ? 'Propietario vinculado' : 'Sin propietario');
         res.json({ message: 'Propiedad actualizada', propiedad });
     } catch (error) {
         console.error('Update Propiedad Error:', error);
