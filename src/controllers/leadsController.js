@@ -1,5 +1,6 @@
 const supabase = require('../config/supabase');
 const winston = require('winston');
+const notificacionController = require('./notificacionController');
 
 // 1. Recibir Lead desde el formulario público (No requiere JWT)
 exports.crearLeadPublico = async (req, res) => {
@@ -37,8 +38,31 @@ exports.crearLeadPublico = async (req, res) => {
             .select();
 
         if (error) throw error;
+        const newLead = data[0];
 
-        // Podríamos enviar notificación en tiempo real aquí usando el canal de notificaciones
+        // NOTIFICACIÓN QUIRÚRGICA: Avisar a los Super Admins
+        try {
+            const { data: admins } = await supabase
+                .from('usuarios')
+                .select('id')
+                .eq('rol', 'super_admin')
+                .eq('activo', true);
+
+            if (admins && admins.length > 0) {
+                const promesas = admins.map(admin => 
+                    notificacionController.crearInterno(
+                        admin.id,
+                        '🎯 ¡Nuevo Lead recibido!',
+                        `Prospecto: ${nombre}. Fuente: ${origen || 'Web'}.`,
+                        'lead',
+                        { lead_id: newLead.id }
+                    )
+                );
+                await Promise.all(promesas);
+            }
+        } catch (notifErr) {
+            winston.error('Error enviando notificaciones de lead:', notifErr);
+        }
 
         return res.status(201).json({
             success: true,
