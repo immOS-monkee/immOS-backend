@@ -1,6 +1,5 @@
 const supabase = require('../config/supabase');
 const winston = require('winston');
-const notificacionController = require('./notificacionController');
 
 // 1. Recibir Lead desde el formulario público (No requiere JWT)
 exports.crearLeadPublico = async (req, res) => {
@@ -39,6 +38,7 @@ exports.crearLeadPublico = async (req, res) => {
 
         if (error) throw error;
         const newLead = data[0];
+        const notificacionController = require('./notificacionController');
 
         // NOTIFICACIÓN QUIRÚRGICA: Avisar a los Super Admins
         try {
